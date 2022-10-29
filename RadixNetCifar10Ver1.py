@@ -71,7 +71,7 @@ class CNNModel(tf.keras.Model):
 
                 v = v * n_
 
-        for i in range(len(D)-1):
+        for i in range(len(W)):
             w_ = np.ones((D[i+1], D[i]))
 
             connectivity.append(np.kron(w_, W[i]))
