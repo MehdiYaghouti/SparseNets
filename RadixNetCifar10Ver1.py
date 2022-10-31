@@ -28,7 +28,12 @@ class CNNModel(tf.keras.Model):
         for n in N[0]:
             N_ = N_*n
 
-        self.nodes = np.array(D)*N_
+        N_f = 1
+        for n in N[-1]:
+            N_f = N_f*n
+         
+        self.nodes     = np.array(D)*N_
+        self.nodes[-1] = D[-1]*N_f
         self.connectivity.insert(0, np.ones((self.nodes[0], 3)))
 
         self.convlayers = []
