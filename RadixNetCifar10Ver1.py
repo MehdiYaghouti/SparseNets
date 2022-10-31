@@ -1,3 +1,23 @@
+# MIT License
+#
+# Copyright (C) IBM Corporation 2018
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+# documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
+# rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit
+# persons to whom the Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all copies or substantial portions of the
+# Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+# WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+# TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+# Author: MehdiYaghouti@gmail.com
+
+
 import tensorflow as tf
 from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.models import Model
@@ -28,12 +48,12 @@ class CNNModel(tf.keras.Model):
         for n in N[0]:
             N_ = N_*n
 
-        N_f = 1
-        for n in N[-1]:
-            N_f = N_f*n
+        #N_f = 1
+        #for n in N[-1]:
+        #    N_f = N_f*n
          
         self.nodes     = np.array(D)*N_
-        self.nodes[-1] = D[-1]*N_f
+        #self.nodes[-1] = D[-1]*N_f
         self.connectivity.insert(0, np.ones((self.nodes[0], 3)))
 
         self.convlayers = []
